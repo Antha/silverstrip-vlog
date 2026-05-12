@@ -1,92 +1,112 @@
-Oke, berikut saya buatkan README.md dalam satu teks utuh (sudah termasuk konfigurasi VirtualHost Apache). Kamu tinggal copy langsung:
+# 🍞 Bakery Store - SilverStripe Theme
 
-markdown
-# SilverStripe Installation Guide
-
-## 📦 Requirements
-- PHP >= 7.4 (disarankan PHP 8.1+)
-- Composer
-- MySQL/MariaDB
-- Apache/Nginx
+A modern, clean, and fully responsive **Bakery Store** theme built for SilverStripe CMS.  
+Perfect for bakeries, pastry shops, cafes, and wholesale bakery businesses.
 
 ---
 
-## 🚀 Installation Steps
+## 📦 Features
+- Built on **SilverStripe CMS 5+**
+- Responsive design (Bootstrap 5)
+- Hero banner with dynamic title & lead text
+- Product listing & detail pages
+- Wholesale registration page
+- Contact page with Info Items (dynamic GridField)
+- Integrated Leaflet map for store location
+- Easy customization via CMS fields
+- SEO friendly structure
 
-### 1. Create Project
-```bash
-composer create-project silverstripe/installer myproject
-cd myproject
-2. Configure Environment
-Buat file .env di root project:
+---
 
-env
-SS_ENVIRONMENT_TYPE="dev"
-SS_DATABASE_CLASS="MySQLDatabase"
-SS_DATABASE_SERVER="localhost"
-SS_DATABASE_USERNAME="root"
-SS_DATABASE_PASSWORD="yourpassword"
-SS_DATABASE_NAME="silverstripe"
-SS_DEFAULT_ADMIN_USERNAME="admin"
-SS_DEFAULT_ADMIN_PASSWORD="admin123"
+## 🚀 Installation
 
-3. Build Database
-bash
-vendor/bin/sake dev/build flush=all
-Atau akses:
+### Requirements
+- PHP >= 8.1
+- Composer
+- MySQL/MariaDB
+- SilverStripe CMS 5.x
+- Web server (Apache/Nginx)
 
-Kode
-http://myproject.local/dev/build?flush=all
+### Steps
+1. Create new SilverStripe project:
+   ```bash
+   composer create-project silverstripe/installer bakery-store
 
-4. Access CMS
-Buka http://myproject.local/admin
+2. Update .env file:
+    SS_ENVIRONMENT_TYPE="dev"
+    SS_DATABASE_CLASS="MySQLDatabase"
+    SS_DATABASE_SERVER="localhost"
+    SS_DATABASE_USERNAME="root"
+    SS_DATABASE_PASSWORD="yourpassword"
+    SS_DATABASE_NAME="silverstripe"
+    SS_DEFAULT_ADMIN_USERNAME="admin"
+    SS_DEFAULT_ADMIN_PASSWORD="admin123"
 
-Login dengan username & password dari .env
+### 3. Run dev/build
+    Default (Linux/Mac):
+    vendor/bin/sake dev/build flush=all
 
-⚙️ Apache VirtualHost Configuration
-Edit file httpd-vhosts.conf (lokasi: xampp/apache/conf/extra/httpd-vhosts.conf atau /etc/apache2/sites-available/000-default.conf di Linux):
+    Alternative options:
+    - Windows: php vendor/bin/sake.php dev/build flush=all
+    - Browser: http://localhost/bakery-store/dev/build?flush=all
+    - Jika flush error: php vendor/bin/sake.php dev/build lalu buka http://localhost/bakery-store?flush=all
+    - Composer refresh: composer dump-autoload && php vendor/bin/sake.php dev/build flush=all
 
-apache
-<VirtualHost *:80>
-    ServerName myproject.local
-    DocumentRoot "C:/xampp/htdocs/myproject/public"
 
-    <Directory "C:/xampp/htdocs/myproject/public">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
+# 📂 Project Structure - Bakery Store Theme
 
-    ErrorLog "logs/myproject-error.log"
-    CustomLog "logs/myproject-access.log" common
-</VirtualHost>
+This SilverStripe project follows a standard structure. Below is an overview of the main folders and files:
 
-5. Hosts File
-Tambahkan domain lokal ke hosts file:
-Windows: C:\Windows\System32\drivers\etc\hosts
-Linux/Mac: /etc/hosts
-txt
-127.0.0.1   myproject.local
+---
 
-6. Restart Apache
-Jalankan ulang Apache dari XAMPP Control Panel atau systemctl restart apache2.
+## Root Directory
+- `.env` → Environment configuration (database, admin login, etc.)
+- `.env.example` → Example environment file
+- `.gitignore` → Git ignore rules
+- `.editorconfig` → Editor configuration
+- `.htaccess` → Apache rewrite rules
+- `composer.json` → Project dependencies
+- `composer.lock` → Dependency lock file
+- `README.md` → Documentation
 
-📂 Project Structure
-app/ → kode custom (controller, model, template)
+---
 
-themes/ → file CSS, JS, template HTML
+## Folders
+- **app/**
+  - `src/` → Custom PHP classes (Page models, Controllers, DataObjects)
+  - Example: `ContactPage.php`, `WholeSalePage.php`, `InfoItem.php`
 
-public/ → file publik (assets, index.php)
+- **themes/**
 
-vendor/ → library dari Composer
+- **public/**
+  - Entry point for web server
+  - Contains `index.php` and public assets
 
-🛠 Common Commands
-Flush cache:
+- **vendor/**
+  - Composer dependencies (SilverStripe core + modules)
+  - ⚠️ Not included in ThemeForest package (install via Composer)
 
-bash
-vendor/bin/sake dev/build flush=all
-Run dev/build:
+---
 
-bash
-vendor/bin/sake dev/build
-📚 References
+## Optional Folders
+- `.git/` → Git repository data
+- `.graphql-generated/` → Auto-generated GraphQL files (if using GraphQL module)
+
+---
+
+## 📌 Notes
+- **Theme files** must be placed in `themes`.
+- **Custom logic** (Page types, DataObjects) goes in `app/src/`.
+- **Do not upload `vendor/`** to ThemeForest; buyers will install dependencies via Composer.
+- **Public assets** should be managed inside `themes/`, not directly in `public/`.
+
+---
+
+## 🛠 Quick Setup
+1. Copy `themes` into your SilverStripe project.
+2. Update `.env` with database and admin credentials.
+3. Run:
+   ```bash
+   php vendor/bin/sake.php dev/build flush=all
+
+

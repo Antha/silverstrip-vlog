@@ -10,8 +10,12 @@ namespace {
 
         private static $has_one = [];
 
-        public function HeaderMenuItem() {
-            return HeaderMenuItem::get();
+        public function ProductObjects() {
+            return ProductObjects::get();
+        }
+
+         public function CategoryObjects() {
+            return CategoryObjects::get();
         }
     }
 }
