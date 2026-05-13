@@ -67,7 +67,7 @@ class HomePage extends Page
             $this->WcuObjects(),
             $config
         );
-        $fields->addFieldToTab('Root.Wcu', $grid);
+        $fields->addFieldToTab('Root.Why Choose Us', $grid);
 
         return $fields;
     }

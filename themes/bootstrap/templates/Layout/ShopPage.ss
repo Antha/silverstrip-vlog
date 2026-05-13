@@ -70,7 +70,7 @@
 						<% loop $Results %>
 							<div class="col-md-4">
 								<div class="card h-100 shadow-sm">
-									<img src="$Thumbnail.URL" class="card-img-top" alt="Almond Croissant">
+									<img src="$Thumbnail.URL" class="card-img-top product-thumb" alt="$Title">
 									<div class="card-body">
 										<h6 class="fw-bold">$Title</h6>
 										<p class="text-muted">Rp. $Price</p>

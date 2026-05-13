@@ -103,9 +103,8 @@ This SilverStripe project follows a standard structure. Below is an overview of 
 ---
 
 ## 🛠 Quick Setup
-1. Copy `themes` into your SilverStripe project.
-2. Update `.env` with database and admin credentials.
-3. Run:
+1. Update `.env` with database and admin credentials.
+2. Run:
    ```bash
    php vendor/bin/sake.php dev/build flush=all
 

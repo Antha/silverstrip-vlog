@@ -249,6 +249,15 @@ body {
   border-radius: 8px;
 }
 
+.product-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* bentuk persegi */
+  object-fit: cover;
+}
+
+.current.nav-item.active a{
+  font-weight: bold;
+}
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
