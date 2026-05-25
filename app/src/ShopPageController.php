@@ -9,10 +9,11 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldComponent;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\Security\Security;
 
-class ShopPageController extends ContentController
+class ShopPageController extends PageController
 {
-    private static $allowed_actions = ['search', 'range', 'filter'];
+    private static $allowed_actions = ['search', 'range', 'filter','addToWhitelist'];
 
     protected function init()
     {
@@ -118,6 +119,24 @@ class ShopPageController extends ContentController
         }
 
         return $list;
+    }
+
+    public function addToWhitelist($request) {
+        $productID = $request->param('ID');
+        $member = Security::getCurrentUser();
+
+        if ($member && $productID) {
+            $whitelist = OrderObjects::create();
+            $whitelist->ProductID = $productID;
+            $whitelist->UserID = $member->ID;
+            $whitelist->MemberID = $member->ID;
+            $whitelist->DateTime = date('Y-m-d H:i:s');
+            $whitelist->write();
+
+            return $this->redirect('/shop?status=success&product=' . $request->param('ID'));
+        }
+
+        return $this->httpError(403, 'Unauthorized');
     }
 }
 

@@ -46,7 +46,6 @@ class ShopPage extends Page
 
         return $fields;
     }
-
 }
 
 ?>

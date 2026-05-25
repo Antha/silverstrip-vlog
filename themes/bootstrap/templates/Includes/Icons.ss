@@ -1,3 +1,4 @@
+<!--
 <% if $SiteConfig.Icon %>
     <link rel="shortcut icon" href="$SiteConfig.Icon.Fill(16,16).URL">
     <link rel="icon" sizes="16x16" href="$SiteConfig.Icon.Fill(16,16).URL" />
@@ -24,4 +25,4 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{$ThemeDir}/icons/icon-76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="{$ThemeDir}/icons/icon-120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="{$ThemeDir}/icons/icon-152.png">
-<% end_if %>
+<% end_if %>-->

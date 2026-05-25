@@ -1,0 +1,292 @@
+/* style.css */
+
+/* Global font & color */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('/images/bg-baker.jpeg'); /* ganti dengan gambar roti/gandum */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 500px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* overlay gelap */
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.explore h2 {
+  color: #8B4513;
+}
+
+.explore .card h6 {
+  color: #8B4513;
+}
+
+.explore .card img {
+  border-radius: 6px;
+}
+
+
+/* Features Section */
+.features h2 {
+  color: #8B4513;
+}
+
+.feature-box {
+  background: #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.feature-box .icon {
+  font-size: 2.5rem;
+  color: #8B4513;
+}
+
+/* Navbar */
+.navbar {
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #8B4513; /* warna coklat roti */
+}
+
+.navbar-brand:hover {
+  color: #5c2e0f;
+}
+
+.nav-link {
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.nav-link.active {
+  color: #8B4513 !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #8B4513;
+  border-color: #8B4513;
+}
+
+.btn-primary:hover {
+  background-color: #5c2e0f;
+  border-color: #5c2e0f;
+}
+
+.btn-outline-primary {
+  color: #8B4513;
+  border-color: #8B4513;
+}
+
+.btn-outline-primary:hover {
+  background-color: #8B4513;
+  color: #fff;
+}
+
+/* Banner Section */
+/* Banner dengan background */
+.banner {
+  background-image: url('/images/bakery-interior.jpg'); /* ganti dengan gambar roti/gandum */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  color: #fff; /* teks putih agar kontras */
+  position: relative;
+}
+
+/* Overlay agar teks lebih jelas */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* transparan gelap */
+}
+
+.banner .container {
+  position: relative;
+  z-index: 1;
+}
+
+.banner h2 {
+  font-size: 2.5rem;
+  color: #FFD700; /* emas/coklat terang */
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.products h5 {
+  color: #8B4513;
+}
+
+.products .card {
+  border: none;
+}
+
+.products .card-body h6 {
+  color: #8B4513;
+}
+
+/* Subscribe Section */
+.subscribe {
+  background-image: url('/images/bg-baker.jpeg'); /* ganti dengan gambar roti/gandum */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.subscribe::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* overlay gelap */
+}
+
+.subscribe .container {
+  position: relative;
+  z-index: 1;
+}
+
+.subscribe h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.subscribe p {
+  font-size: 1.1rem;
+}
+
+.footer {
+  background-color: #0d1b2a; /* biru gelap */
+  color: #fff;
+}
+
+.footer h5, .footer h6 {
+  margin-bottom: 1rem;
+}
+
+.footer a:hover {
+  color: #FFD700; /* efek hover emas */
+}
+
+.hero.git{
+  background-image: url('/images/bakery-git.webp');
+}
+
+.contact h2, .contact h5 {
+  color: #FFD700; /* emas agar kontras dengan background gelap */
+}
+
+.contact p {
+  font-size: 1.1rem;
+}
+
+.map-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.register h2 {
+  color: #8B4513;
+}
+
+.register .list-group-item {
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1.05rem;
+}
+
+.register .list-group-numbered > .list-group-item::before {
+  background-color: #8B4513;
+  color: #fff;
+}
+
+.hero.wholesale{
+  background-image: url('/images/wholesale-bakery.jpg');
+}
+
+.wholesale h2 {
+  color: #FFD700; /* judul emas */
+}
+
+.wholesale h4 {
+  color: #f5deb3; /* subjudul tan */
+}
+
+.info-box {
+  background-color: #f5deb3; /* warna tan */
+  color: #000;
+  border-radius: 8px;
+}
+
+.product-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* bentuk persegi */
+  object-fit: cover;
+}
+
+.current.nav-item.active a{
+  font-weight: bold;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.status-whitelist { background-color: #6c757d; }   /* abu-abu */
+.status-checkout  { background-color: #0d6efd; }   /* biru */
+.status-sending   { background-color: #ffc107; }   /* kuning */
+.status-delivered { background-color: #28a745; }   /* hijau */
+.status-cancelled { background-color: #dc3545; }   /* merah */
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+  section p {
+    font-size: 1rem;
+  }
+}
+
+.col-sm.content{
+  padding: 20px;
+}

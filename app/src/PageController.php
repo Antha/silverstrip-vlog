@@ -1,8 +1,8 @@
 <?php
-
 namespace {
 
     use SilverStripe\CMS\Controllers\ContentController;
+    use SilverStripe\Security\Security;
 
     /**
      * @template T of Page
@@ -32,6 +32,50 @@ namespace {
             parent::init();
             // You can include any CSS or JS required by your project here.
             // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
+        }
+
+        public function CurrentUserName() {
+            $member = Security::getCurrentUser();
+            return $member ? $member->getName() : null;
+            // return "Miss";
+        }
+
+        public function CurrentUserID() {
+            $member = Security::getCurrentUser();
+            return $member ? $member->ID : null;
+            // return "Miss";
+        }
+  
+        public function ProductObjects() {
+            return ProductObjects::get();
+        }
+
+        public function CategoryObjects() {
+            return CategoryObjects::get();
+        }
+
+        public function WishlistObjects() {
+            $member = Security::getCurrentUser();
+            if (!$member) {
+                return OrderObjects::get()->filter('ID', 0); // kosongkan kalau tidak login
+            }
+
+            return OrderObjects::get()
+                ->filter('UserID', $member->ID)
+                ->filter('Status', "wishlist")
+                ->sort('DateTime', 'DESC');
+        }
+
+        public function CheckoutObjects() {
+            $member = Security::getCurrentUser();
+            if (!$member) {
+                return OrderObjects::get()->filter('ID', 0); // kosongkan kalau tidak login
+            }
+
+            return OrderObjects::get()
+                ->filter('UserID', $member->ID)
+                ->filter('Status', "checkout")
+                ->sort('DateTime', 'DESC');
         }
     }
 }

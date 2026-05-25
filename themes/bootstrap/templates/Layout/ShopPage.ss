@@ -74,6 +74,7 @@
 									<div class="card-body">
 										<h6 class="fw-bold">$Title</h6>
 										<p class="text-muted">Rp. $Price</p>
+										<a href="$AddToWhitelistLink" class="btn btn-primary">Add to Whitelist</a>
 									</div>
 								</div>
 							</div>
@@ -86,3 +87,19 @@
 		</div>
 	</div>
 </section>
+
+<script>
+  // ambil parameter dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const status = urlParams.get('status');
+
+  if (status === 'success') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Succesc!',
+      text: 'Products have been added to whitelist',
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+</script>

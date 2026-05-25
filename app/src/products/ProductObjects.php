@@ -8,6 +8,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Control\Controller;
 
 class ProductObjects extends DataObject
 {
@@ -25,6 +26,10 @@ class ProductObjects extends DataObject
     private static $owns = [
         'Thumbnail',
     ];
+
+    public function AddToWhitelistLink() {
+        return Controller::curr()->Link("addToWhitelist/{$this->ID}");
+    }
 
     public function getCMSFields()
     {

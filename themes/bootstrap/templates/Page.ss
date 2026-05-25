@@ -34,7 +34,7 @@
 	<body <% if $isHomePage %>class="home-page"<% end_if %> <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %>>
 		
 		<% include Header %>
-
+		
 		<% include Layout Layout=$Layout, Top=$Top, Me=$Me %>
 
 		<% include Footer %>

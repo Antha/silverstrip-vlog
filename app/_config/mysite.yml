@@ -20,4 +20,9 @@ SilverStripe\SiteConfig\SiteConfig:
     - SubscribeConfig
     - ContactConfig
     - FooterTextConfig
+    - FavIconConfig
+   
+SilverStripe\Security\MemberAuthenticator:
+  extensions:
+    - App\login\CustomLoginExtension
 
