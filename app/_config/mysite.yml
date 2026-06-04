@@ -26,3 +26,12 @@ SilverStripe\Security\MemberAuthenticator:
   extensions:
     - App\login\CustomLoginExtension
 
+
+SilverStripe\Admin\LeftAndMain:
+  extensions:
+    - App\admin\AdminHeaderExtension
+
+SilverStripe\Control\Director:
+  rules:
+    'order//$Action': 'App\api\OrderController'
+

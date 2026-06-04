@@ -1,0 +1,10 @@
+body.login-page {
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  font-family: Arial, sans-serif;
+}
+.card {
+  border-radius: 10px;
+}
+.card-header h4 {
+  font-weight: 600;
+}

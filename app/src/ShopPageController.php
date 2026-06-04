@@ -1,19 +1,11 @@
 <?php
 
-use SilverStripe\Assets\Image;
-use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\CMS\Controllers\ContentController;
-use SilverStripe\Forms\FieldGroup;
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use SilverStripe\Forms\GridField\GridFieldComponent;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Security\Security;
 
 class ShopPageController extends PageController
 {
-    private static $allowed_actions = ['search', 'range', 'filter','addToWhitelist'];
+    private static $allowed_actions = ['search', 'range', 'filter','addToWishlist'];
 
     protected function init()
     {
@@ -121,7 +113,7 @@ class ShopPageController extends PageController
         return $list;
     }
 
-    public function addToWhitelist($request) {
+    public function addToWishlist($request) {
         $productID = $request->param('ID');
         $member = Security::getCurrentUser();
 
@@ -139,5 +131,3 @@ class ShopPageController extends PageController
         return $this->httpError(403, 'Unauthorized');
     }
 }
-
-?>

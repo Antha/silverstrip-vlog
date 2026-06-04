@@ -40,11 +40,21 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
               <li><a class="dropdown-item" href="/wishlist">Wishlist</a></li>
               <li><a class="dropdown-item" href="/checkout">Checkout</a></li>
+              <li><a class="dropdown-item" href="/in-progress">In Progress</a></li>
+              <li><a class="dropdown-item" href="/sending">Sending</a></li>
+              <li><a class="dropdown-item" href="/delivered">Delivered</a></li>
               <li><a class="dropdown-item" href="/Security/logout?BackURL=/">Logout</a></li>
             </ul>
           </div>
         <% else %>
-          <a href="/Security/login?BackURL=/shop" class="btn btn-outline-primary">Login</a>
+          <div class="d-flex justify-content-center gap-3 my-3">
+            <a href="/login?BackURL=/shop" class="btn btn-outline-primary px-4">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+            <a href="/register" class="btn btn-outline-primary px-4">
+              <i class="bi bi-person-plus"></i> Register
+            </a>
+          </div>
         <% end_if %>
       </div>
     </div>

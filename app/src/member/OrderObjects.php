@@ -10,8 +10,9 @@ class OrderObjects extends DataObject {
         'ProductID' => 'Int',
         'UserID'    => 'Int',
         'DateTime'  => 'Datetime',
-        'Status'    => "Enum('wishlist,checkout,sending,delivered','wishlist')",
-        'Status_Payment' => "Enum('paid,unpaid','unpaid')"
+        'Status'    => "Enum('wishlist,checkout,inprogress,sending,delivered','wishlist')",
+        'Status_Payment' => "Enum('paid,unpaid','unpaid')",
+        'Status_Read' => "Enum('read,unread','unread')"
     ];
 
     private static $has_one = [
@@ -23,6 +24,7 @@ class OrderObjects extends DataObject {
         'ProductID' => 'Product ID',
         'UserID'    => 'User ID',
         'Status'    => 'Status',
+        'Status_Payment'    => 'Status Payment',
         'Product.Title' => 'Product',
         'DateTime'  => 'Added At'
     ];
@@ -33,10 +35,21 @@ class OrderObjects extends DataObject {
             'checkout'  => '<span class="badge bg-primary text-light">Checkout</span>',
             'sending'   => '<span class="badge bg-warning text-dark">Sending</span>',
             'delivered' => '<span class="badge bg-success text-light">Delivered</span>',
-            'cancelled' => '<span class="badge bg-danger text-light">Cancelled</span>',
+            'inprogress' => '<span class="badge bg-danger text-light">Inprogress</span>',
         ];
 
         $html = $map[$this->Status] ?? $this->Status;
+        return DBField::create_field('HTMLText', $html);
+    }
+
+    
+    public function getStatusPaymentBadge() {
+        $map = [
+            'unpaid'   => '<span class="badge bg-warning text-dark">Unpaid</span>',
+            'paid' => '<span class="badge bg-success text-light">Paid</span>',
+        ];
+
+        $html = $map[$this->Status_Payment] ?? $this->Status;
         return DBField::create_field('HTMLText', $html);
     }
 

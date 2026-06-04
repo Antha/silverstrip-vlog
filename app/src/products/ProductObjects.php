@@ -27,8 +27,8 @@ class ProductObjects extends DataObject
         'Thumbnail',
     ];
 
-    public function AddToWhitelistLink() {
-        return Controller::curr()->Link("addToWhitelist/{$this->ID}");
+    public function AddToWishlistLink() {
+        return Controller::curr()->Link("addToWishlist/{$this->ID}");
     }
 
     public function getCMSFields()

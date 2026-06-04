@@ -13,7 +13,7 @@ class WishListPageController extends PageController
         $orders = OrderObjects::get()
             ->filter([
                 'UserID' => $userID,
-                'Status' => 'whitelist'
+                'Status' => 'wishlist'
             ]);
 
         foreach ($orders as $order) {
@@ -21,8 +21,6 @@ class WishListPageController extends PageController
             $order->write();
         }
 
-         return $this->redirect('/white-list?status=checkout');
+        return $this->redirect('/checkout?status=checkout');
     }
 }
-
-?>

@@ -74,7 +74,7 @@
 									<div class="card-body">
 										<h6 class="fw-bold">$Title</h6>
 										<p class="text-muted">Rp. $Price</p>
-										<a href="$AddToWhitelistLink" class="btn btn-primary">Add to Whitelist</a>
+										<a href="$AddToWishlistLink" class="btn btn-primary">Add to Wishlist</a>
 									</div>
 								</div>
 							</div>
@@ -96,8 +96,8 @@
   if (status === 'success') {
     Swal.fire({
       icon: 'success',
-      title: 'Succesc!',
-      text: 'Products have been added to whitelist',
+      title: 'success!',
+      text: 'Products have been added to wishlist',
       showConfirmButton: false,
       timer: 2000
     });

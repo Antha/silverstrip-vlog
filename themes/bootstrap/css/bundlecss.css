@@ -268,11 +268,16 @@ body {
   color: #fff;
 }
 
-.status-whitelist { background-color: #6c757d; }   /* abu-abu */
+.status-wishlist { background-color: #6c757d; }   /* abu-abu */
 .status-checkout  { background-color: #0d6efd; }   /* biru */
 .status-sending   { background-color: #ffc107; }   /* kuning */
-.status-delivered { background-color: #28a745; }   /* hijau */
+.status-delivered { background-color: #28a745; } 
+.status-inprogress { background-color: purple; }   /* hijau */
 .status-cancelled { background-color: #dc3545; }   /* merah */
+
+#ForgotPassword{
+    margin: 10px !important;
+}
 
 /* Responsive tweaks */
 @media (max-width: 768px) {

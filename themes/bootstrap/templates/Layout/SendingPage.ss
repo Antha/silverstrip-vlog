@@ -1,7 +1,7 @@
 <!-- White List Section -->
 <section class="features py-5 bg-light">
     <div class="container">
-        <h2 class="text-center fw-bold mb-5">Items in Checkout</h2>
+        <h2 class="text-center fw-bold mb-5">Sending Orders</h2>
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover align-middle text-center">
                 <thead class="table-dark">
@@ -12,37 +12,31 @@
                         <th>Time Checked</th>
                     </tr>
                     </thead>
-                    <tbody>
-                        <% if $CheckoutObjects %>
-                            <% loop $CheckoutObjects %>
-                                <tr>
-                                    <td>$ID</td>
-                                    <td class="text-start">
-                                        <img src="$Product.Thumbnail.URL" 
-                                            class="card-img-top product-thumb" 
-                                            style="width: 128px; height: 128px; padding:5px" 
-                                            alt="$Product.Title">
-                                        $Product.Title
-                                    </td>
-                                    <td><span class="status-badge status-{$Status}">$Status</span></td>
-                                    <td>$DateTime</td>
-                                </tr>
-                            <% end_loop %>
-                        <% else %>
+                <tbody>
+                <% if $SendingObjects %>
+                        <% loop $SendingObjects %>
                             <tr>
-                                <td colspan="4" class="text-center text-muted">
-                                    No checkout data available.
+                                <td>$ID</td>
+                                <td class="text-start">
+                                    <img src="$Product.Thumbnail.URL" 
+                                        class="card-img-top product-thumb" 
+                                        style="width: 128px; height: 128px; padding:5px" 
+                                        alt="$Product.Title">
+                                    $Product.Title
                                 </td>
+                                <td><span class="status-badge status-{$Status}">$Status</span></td>
+                                <td>$DateTime</td>
                             </tr>
-                        <% end_if %>
-                    </tbody>
+                        <% end_loop %>
+                    <% else %>
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">
+                                No checkout data available.
+                            </td>
+                        </tr>
+                    <% end_if %>
                 </tbody>
             </table>
-        </div>
-        <div style="display: flex; justify-content: center;" class="mt-3">
-           <button id="confirmPaymentBtn" class="btn btn-success">
-                Confirm Your Payment
-            </button>
         </div>
     </div>
 </section>
@@ -83,13 +77,12 @@
     const urlParams = new URLSearchParams(window.location.search);
     const status = urlParams.get('status');
 
-    if (status === 'checkout') {
+    if (status === 'paid') {
         Swal.fire({
+            title: 'Payment Confirmed',
+            text: 'Thank you, your payment has been recorded.',
             icon: 'success',
-            title: 'success!',
-            text: 'Products have been checked out',
-            showConfirmButton: false,
-            timer: 2000
+            confirmButtonText: 'OK'
         });
     }
 </script>

@@ -1,7 +1,7 @@
 <!-- Wish List Section -->
 <section class="features py-5 bg-light">
     <div class="container">
-        <h2 class="text-center fw-bold mb-5">Wishlist Items</h2>
+        <h2 class="text-center fw-bold mb-5">Delivered Orders</h2>
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover align-middle text-center">
                 <thead class="table-dark">
@@ -13,8 +13,8 @@
                     </tr>
                     </thead>
                 <tbody>
-                    <% if $WishlistObjects %>
-                        <% loop $WishlistObjects %>
+                    <% if $DeliveredObjects %>
+                        <% loop $DeliveredObjects %>
                             <tr>
                                 <td>$ID</td>
                                 <td class="text-start">

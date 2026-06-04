@@ -77,5 +77,41 @@ namespace {
                 ->filter('Status', "checkout")
                 ->sort('DateTime', 'DESC');
         }
+
+        public function InProgressObjects() {
+            $member = Security::getCurrentUser();
+            if (!$member) {
+                return OrderObjects::get()->filter('ID', 0); // kosongkan kalau tidak login
+            }
+
+            return OrderObjects::get()
+                ->filter('UserID', $member->ID)
+                ->filter('Status', "inprogress")
+                ->sort('DateTime', 'DESC');
+        }
+
+        public function SendingObjects() {
+            $member = Security::getCurrentUser();
+            if (!$member) {
+                return OrderObjects::get()->filter('ID', 0); // kosongkan kalau tidak login
+            }
+
+            return OrderObjects::get()
+                ->filter('UserID', $member->ID)
+                ->filter('Status', "sending")
+                ->sort('DateTime', 'DESC');
+        }
+
+        public function DeliveredObjects() {
+            $member = Security::getCurrentUser();
+            if (!$member) {
+                return OrderObjects::get()->filter('ID', 0); // kosongkan kalau tidak login
+            }
+
+            return OrderObjects::get()
+                ->filter('UserID', $member->ID)
+                ->filter('Status', "delivered")
+                ->sort('DateTime', 'DESC');
+        }
     }
 }
